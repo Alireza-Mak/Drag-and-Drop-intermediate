@@ -1,0 +1,22 @@
+{
+  "homepage": "",
+  "name": "drag-drop",
+  "version": "2.0.0",
+  "description": "Drag and Drop Application.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "development": "webpack --config webpack.config.js",
+    "production": "webpack --config webpack.config.prod.js"
+  },
+  "author": "Alireza Mak",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "ts-loader": "^9.4.3",
+    "typescript": "^5.0.4",
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  }
+}
