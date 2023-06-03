@@ -1,18 +1,21 @@
 // import path from core Node module
 const path = require('path');
 
+// import copy plugin form Node module
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 // How to export something to Node
 module.exports = {
   // Define our mode
   mode: 'development',
 
   //Define root of entry project
-  entry: './src/app.ts',
+  entry: './src/ts/app.ts',
 
   //Define root of output project
   output: {
     //Define filename  of our output
-    filename: './dist/bundle.js',
+    filename: './js/bundle.js',
 
     //Define path  of our output
     path: path.resolve(__dirname, './dist'),
@@ -20,7 +23,7 @@ module.exports = {
 
   // Configration for dev server
   devServer: {
-    static: './',
+    static: './src',
   },
 
   // Help us to debug our codes
@@ -45,4 +48,14 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
   },
+  plugins: [
+    // Using copy webpack plugin
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/css', to: 'css' },
+        { from: 'src/img', to: 'img' },
+        { from: 'src/index.html', to: 'index.html' },
+      ],
+    }),
+  ],
 };

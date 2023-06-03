@@ -4,18 +4,21 @@ const path = require('path');
 // import clean plugin form Node module
 const CleanPlugin = require('clean-webpack-plugin');
 
+// import copy plugin form Node module
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 // How to export something to Node
 module.exports = {
   // Define our mode
   mode: 'production',
 
   //Define root of entry project
-  entry: './src/app.ts',
+  entry: './src/ts/app.ts',
 
   //Define root of output project
   output: {
     //Define filename  of our output
-    filename: './dist/bundle.js',
+    filename: './js/bundle.js',
 
     //Define path  of our output
     path: path.resolve(__dirname, './dist'),
@@ -43,6 +46,14 @@ module.exports = {
 
   // Define an array for different plugins
   plugins: [
+    // Using copy webpack plugin
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/css', to: 'css' },
+        { from: 'src/img', to: 'img' },
+        { from: 'src/index.html', to: 'index.html' },
+      ],
+    }),
     // Using Clean plugin
     new CleanPlugin.CleanWebpackPlugin(),
   ],
