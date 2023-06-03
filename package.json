@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "predeploy": "npm run prod",
+    "predeploy": "npm run production",
     "deploy": "webpack --mode production && gh-pages -d dist",
     "development": "webpack --config webpack.config.js",
     "production": "webpack --config webpack.config.prod.js"
